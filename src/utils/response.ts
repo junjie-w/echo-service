@@ -1,5 +1,5 @@
-import type { Request } from 'express';
 import type { HttpMethod, RequestEcho } from '../types/index.js';
+import type { Request } from 'express';
 
 export const createRequestEcho = (req: Request): RequestEcho => ({
   headers: req.headers,

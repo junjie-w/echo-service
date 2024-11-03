@@ -1,5 +1,4 @@
-import { LoggerFunction, LogLevel, LogPayload } from "../types/index.js";
-
+import type { LoggerFunction, LogLevel, LogPayload } from '../types/index.js';
 
 export const logger: Record<LogLevel, LoggerFunction> = {
   info: (payload: LogPayload) => {

@@ -1,4 +1,4 @@
-import type { TimedResponse } from "../types/index.js";
+import type { TimedResponse } from '../types/index.js';
 
 export const measureExecutionTime = <T>(operation: () => T): TimedResponse<T> => {
   const startTime = process.hrtime();
