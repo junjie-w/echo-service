@@ -1,12 +1,15 @@
+import { hostname } from 'node:os';
+
 import express from 'express';
-import { hostname } from 'os';
+
+import { config } from './config/config.js';
+import { SERVICE_INFO } from './config/constants.js';
+import { errorHandler } from './middleware/errorHandler.js';
+import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { createRequestEcho } from './utils/response.js';
 import { measureExecutionTime } from './utils/timing.js';
+
 import type { EchoResponse, EchoResponseData, HealthCheckResponse } from './types/index.js';
-import { notFoundHandler } from './middleware/notFoundHandler.js';
-import { errorHandler } from './middleware/errorHandler.js';
-import { SERVICE_INFO } from './config/constants.js';
-import { config } from './config/config.js';
 
 const app = express();
 

@@ -1,6 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
 import { logger } from '../utils/logger.js';
+
 import type { ErrorResponse } from '../types/index.js';
+import type { Request, Response, NextFunction } from 'express';
 
 export const errorHandler = (
   err: Error,

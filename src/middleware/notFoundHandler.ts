@@ -1,6 +1,7 @@
-import { Request, Response } from 'express';
 import { logger } from '../utils/logger.js';
+
 import type { ErrorResponse } from '../types/index.js';
+import type { Request, Response } from 'express';
 
 export const notFoundHandler = (req: Request, res: Response) => {
   logger.warn({

@@ -7,7 +7,6 @@ build/
 
 # IDE and editor files
 .idea/
-.vscode/
 *.swp
 *.swo
 .DS_Store
@@ -32,6 +31,9 @@ coverage/
 
 # npm cache directory
 .npm
+
+# ESLint cache
+.eslintcache
 
 # Docker
 .docker/
