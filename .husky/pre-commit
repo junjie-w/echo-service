@@ -1,1 +1,7 @@
+npm audit --production || (
+    echo '🚨 npm audit found vulnerabilities!'
+    echo 'Review the audit report above and fix any high-severity issues.'
+    exit 1
+)
+
 npx lint-staged
