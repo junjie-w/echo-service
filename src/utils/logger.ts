@@ -11,6 +11,12 @@ export const logger: Record<LogLevel, LoggerFunction> = {
   error: (payload: LogPayload) => {
     if (typeof payload === 'string') {
       console.error(`[ERROR] ${payload}`);
+    } else if (payload instanceof Error) {
+      console.error('[ERROR]', {
+        name: payload.name,
+        message: payload.message,
+        stack: payload.stack
+      });
     } else {
       console.error('[ERROR]', payload);
     }

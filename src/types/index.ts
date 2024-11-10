@@ -58,6 +58,6 @@ export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 
 export type LogLevel = 'info' | 'error' | 'warn';
 
-export type LogPayload = string | Record<string, unknown>;
+export type LogPayload = string | Record<string, unknown> | Error;
 
 export type LoggerFunction = (payload: LogPayload) => void;
