@@ -1,4 +1,13 @@
+import type { Request as ExpressRequest, Response as ExpressResponse } from 'express';
 import type { IncomingHttpHeaders } from 'http';
+
+export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
+
+export type LogLevel = 'info' | 'error' | 'warn';
+
+export type LogPayload = string | Record<string, unknown> | Error;
+
+export type LoggerFunction = (payload: LogPayload) => void;
 
 export interface RequestEcho {
   headers: IncomingHttpHeaders;
@@ -54,10 +63,24 @@ export interface ErrorResponse {
   };
 }
 
-export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
+export interface JsonVerifyCallback {
+  (req: ExpressRequest, res: ExpressResponse, buf: Buffer, encoding: string): void;
+}
 
-export type LogLevel = 'info' | 'error' | 'warn';
+export class HttpError extends Error {
+  constructor(
+    public statusCode: number,
+    message: string
+  ) {
+    super(message);
+    this.name = 'HttpError';
+  }
+}
 
-export type LogPayload = string | Record<string, unknown> | Error;
-
-export type LoggerFunction = (payload: LogPayload) => void;
+/* istanbul ignore next */
+export class BadRequestError extends HttpError {
+  constructor(message: string = 'Bad Request') {
+    super(400, message);
+    this.name = 'BadRequestError';
+  }
+}

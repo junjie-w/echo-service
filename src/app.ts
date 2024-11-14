@@ -5,6 +5,7 @@ import express from 'express';
 import { config } from './config/config.js';
 import { SERVICE_INFO } from './config/constants.js';
 import { errorHandler } from './middleware/errorHandler.js';
+import { jsonParser } from './middleware/jsonValidator.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { createRequestEcho } from './utils/response.js';
 import { measureExecutionTime } from './utils/timing.js';
@@ -12,8 +13,7 @@ import { measureExecutionTime } from './utils/timing.js';
 import type { EchoResponse, EchoResponseData, HealthCheckResponse } from './types/index.js';
 
 const app = express();
-
-app.use(express.json());
+app.use(jsonParser);
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/health', (_req, res) => {
@@ -60,6 +60,6 @@ app.all('/echo', (req, res, next) => {
 });
 
 app.use(notFoundHandler);
-app.use(errorHandler);
+app.use(errorHandler as express.ErrorRequestHandler); 
 
 export default app;
