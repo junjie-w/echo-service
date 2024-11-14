@@ -11,8 +11,7 @@ export default {
   },
   extensionsToTreatAsEsm: ['.ts'],
   testMatch: [
-    '**/__tests__/**/*.test.ts',
-    '**/?(*.)+(spec|test).ts'
+    '**/?(*.)+(spec|test).ts',
   ],
   coverageThreshold: {
     global: {
@@ -21,5 +20,8 @@ export default {
       lines: 80,
       statements: 80
     }
-  }
+  },
+  testTimeout: 10000,
+  verbose: true,       
+  detectOpenHandles: true 
 };
