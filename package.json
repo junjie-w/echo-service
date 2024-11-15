@@ -4,6 +4,7 @@
   "type": "module",
   "main": "dist/server.js",
   "scripts": {
+    "prepare": "[ -n \"$HUSKY\" ] || husky",
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
@@ -18,7 +19,11 @@
     "stop:test": "node scripts/stop-server.js || exit 0",
     "lint": "eslint \"**/*.{js,ts,json,yml}\" --cache",
     "lint:fix": "eslint \"**/*.{js,ts,json,yml}\" --fix --cache",
-    "prepare": "husky"
+    "docker:build": "./scripts/docker.sh build",
+    "docker:start": "./scripts/docker.sh start",
+    "docker:stop": "./scripts/docker.sh stop",
+    "docker:logs": "./scripts/docker.sh logs",
+    "docker:clean": "./scripts/docker.sh clean"
   },
   "keywords": [
     "echo",

@@ -1,0 +1,11 @@
+node_modules
+coverage
+.git
+.github
+.husky
+.vscode
+*.log
+.env*
+dist
+.eslintcache
+npm-debug.log*
