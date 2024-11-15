@@ -27,20 +27,25 @@
   },
   "keywords": [
     "echo",
+    "http",
     "docker",
+    "api",
+    "testing",
+    "debugging",
     "express",
     "typescript",
     "npm-package"
   ],
   "author": "Junjie Wu",
   "license": "MIT",
-  "description": "",
+  "description": "HTTP echo service for request inspection and testing",
   "dependencies": {
     "express": "^4.21.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
+    "@semantic-release/git": "^10.0.1",
     "@types/express": "^5.0.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.8.6",
@@ -56,6 +61,7 @@
     "husky": "^9.1.6",
     "jest": "^29.7.0",
     "lint-staged": "^15.2.10",
+    "semantic-release": "^24.2.0",
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.5",
     "tsx": "^4.19.2",
