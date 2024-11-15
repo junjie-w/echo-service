@@ -30,13 +30,35 @@ jobs:
       - name: Run linting
         run: npm run lint
 
-      - name: Run tests
-        run: npm run test:ci
+      - name: Run unit tests
+        run: npm run test:unit
+
+      - name: Run integration tests
+        run: npm run test:integration
+
+      - name: Build application
+        run: npm run build
+
+      - name: Start test server
+        run: npm run start:test & sleep 5
+        env:
+          PORT: 3001
+          NODE_ENV: test
+
+      - name: Run API tests
+        run: npm run test:api
+
+      - name: Stop test server
+        if: always()
+        run: npm run stop:test
+
+      - name: Generate coverage report
+        run: npm run test:coverage
 
       - name: Upload coverage reports
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: |
-            coverage/
-            !coverage/lcov-report/** 
+          path: coverage/
+          if-no-files-found: error

@@ -1,4 +1,4 @@
-export default {
+const baseConfig = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   moduleNameMapper: {
@@ -9,9 +9,30 @@ export default {
       useESM: true
     }]
   },
-  extensionsToTreatAsEsm: ['.ts'],
-  testMatch: [
-    '**/?(*.)+(spec|test).ts',
+  extensionsToTreatAsEsm: ['.ts']
+};
+
+export default {
+  ...baseConfig,
+  projects: [
+    {
+      displayName: '🧪 UNIT',  
+      ...baseConfig,
+      testMatch: ['<rootDir>/src/tests/unit/**/*.test.ts'],
+      rootDir: '.'
+    },
+    {
+      displayName: '🔄 INTEGRATION',  
+      ...baseConfig,
+      testMatch: ['<rootDir>/src/tests/integration/**/*.test.ts'],
+      rootDir: '.'
+    },
+    {
+      displayName: '🌐 API',  
+      ...baseConfig,
+      testMatch: ['<rootDir>/src/tests/api/**/*.test.ts'],
+      rootDir: '.'
+    }
   ],
   coverageThreshold: {
     global: {
@@ -21,7 +42,15 @@ export default {
       statements: 80
     }
   },
+  collectCoverageFrom: [
+    'src/**/*.{ts,js}',
+    '!src/tests/**',
+    '!src/**/*.d.ts',
+    '!src/types/**',
+    '!src/server.ts',  
+    '!src/**/index.ts' 
+  ],
   testTimeout: 10000,
-  verbose: true,       
-  detectOpenHandles: true 
+  verbose: true,
+  detectOpenHandles: true
 };
