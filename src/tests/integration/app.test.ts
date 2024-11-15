@@ -1,6 +1,7 @@
 import request from 'supertest';
 
 import app from '../../app.js';
+import { SERVICE_INFO } from '../../config/constants.js';
 import * as responseUtils from '../../utils/response.js';
 
 const mockHostname = jest.fn().mockReturnValue('test-host');
@@ -20,6 +21,24 @@ describe('Echo Service Integration Tests', () => {
     jest.clearAllMocks();
     jest.restoreAllMocks();  
     process.env.NODE_ENV = originalEnv;
+  });
+
+  describe('GET /', () => {
+    it('should return 200 and welcome message with available endpoints', async () => {
+      const response = await request(app)
+        .get('/')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(response.body).toEqual({
+        message: 'Welcome to Echo Service! Send your requests to /echo endpoint',
+        availableEndpoints: {
+          echo: '/echo',
+          health: '/health'
+        },
+        documentation: SERVICE_INFO.SOURCE_CODE
+      });
+    });
   });
 
   describe('GET /health', () => {

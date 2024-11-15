@@ -16,6 +16,17 @@ const app = express();
 app.use(jsonParser);
 app.use(express.urlencoded({ extended: true }));
 
+app.get('/', (_req, res) => {
+  res.json({
+    message: 'Welcome to Echo Service! Send your requests to /echo endpoint',
+    availableEndpoints: {
+      echo: '/echo',
+      health: '/health'
+    },
+    documentation: SERVICE_INFO.SOURCE_CODE
+  });
+});
+
 app.get('/health', (_req, res) => {
   const healthResponse: HealthCheckResponse = {
     status: 'healthy',
