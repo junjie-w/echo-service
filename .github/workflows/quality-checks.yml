@@ -26,6 +26,9 @@ jobs:
 
       - name: Security audit
         run: npm audit
+      
+      - name: Build TypeScript
+        run: npm run build
 
       - name: Run linting
         run: npm run lint
