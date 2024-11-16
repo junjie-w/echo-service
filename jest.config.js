@@ -47,8 +47,9 @@ export default {
     '!src/tests/**',
     '!src/**/*.d.ts',
     '!src/types/**',
-    '!src/server.ts',  
-    '!src/**/index.ts' 
+    '!src/server.ts',
+    '!src/cli.ts',
+    '!src/**/index.ts'
   ],
   testTimeout: 10000,
   verbose: true,
