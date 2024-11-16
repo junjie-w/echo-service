@@ -19,18 +19,18 @@ Package Development
 -----------------
 npm run cli         # Run CLI locally
 npm run link        # Link package globally
-npm run unlink      # Unlink @junjiewu0/echo-service globally
+npm run unlink      # Unlink @junjie-wu/echo-service globally
 
 Global Usage
 -----------
 # Install globally
-npm install -g @junjiewu0/echo-service
+npm install -g @junjie-wu/echo-service
 
 # Run anywhere
 echo-service
 
 # Or use npx without installing
-npx @junjiewu0/echo-service
+npx @junjie-wu/echo-service
 
 Environment Variables
 -------------------
