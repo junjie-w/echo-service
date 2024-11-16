@@ -1,0 +1,87 @@
+{
+  "name": "@junjie-w/echo-service",
+  "version": "1.0.0",
+  "description": "HTTP echo service for request inspection and testing - available as library, CLI tool, and Docker container",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "echo-service": "dist/cli.js"
+  },
+  "scripts": {
+    "prepare": "[ -n \"$HUSKY\" ] || husky",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:ci": "jest --coverage --ci",
+    "test:unit": "jest --selectProjects \"🧪 UNIT\" --passWithNoTests",
+    "test:integration": "jest --selectProjects \"🔄 INTEGRATION\" --passWithNoTests",
+    "test:api": "jest --selectProjects \"🌐 API\" --passWithNoTests",
+    "start:test": "npm run build && cross-env PORT=3001 NODE_ENV=test node dist/server.js",
+    "stop:test": "node scripts/stop-server.js || exit 0",
+    "lint": "eslint \"**/*.{js,ts,json,yml}\" --cache",
+    "lint:fix": "eslint \"**/*.{js,ts,json,yml}\" --fix --cache",
+    "docker:build": "./scripts/docker.sh build",
+    "docker:start": "./scripts/docker.sh start",
+    "docker:stop": "./scripts/docker.sh stop",
+    "docker:logs": "./scripts/docker.sh logs",
+    "docker:clean": "./scripts/docker.sh clean",
+    "link": "npm link",
+    "unlink": "npm unlink @junjie-w/echo-service",
+    "cli": "node dist/cli.js",
+    "help": "./scripts/help.sh",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "echo",
+    "http",
+    "docker",
+    "api",
+    "cli",
+    "testing",
+    "debugging",
+    "express",
+    "typescript",
+    "npm-package"
+  ],
+  "author": "Junjie Wu",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@semantic-release/git": "^10.0.1",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.8.6",
+    "@types/supertest": "^6.0.2",
+    "@typescript-eslint/eslint-plugin": "^8.12.2",
+    "@typescript-eslint/parser": "^8.12.2",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.1",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsonc": "^2.16.0",
+    "eslint-plugin-yml": "^1.15.0",
+    "husky": "^9.1.6",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.2.10",
+    "semantic-release": "^24.2.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}
