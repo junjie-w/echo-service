@@ -2,17 +2,32 @@
   "name": "@junjie-wu/echo-service",
   "version": "1.0.1",
   "description": "HTTP echo service for request inspection and testing - available as library, CLI tool, and Docker container",
+  "author": "Junjie Wu",
+  "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
     "echo-service": "dist/cli.js"
   },
+  "files": [ "dist", "README.md"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/junjie-w/echo-service.git"
+  },
+  "homepage": "https://github.com/junjie-w/echo-service#readme",
+  "bugs": {
+    "url": "https://github.com/junjie-w/echo-service/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "prepare": "[ -n \"$HUSKY\" ] || husky",
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
+    "prepare": "[ -n \"$HUSKY\" ] || husky",
+    "prepublishOnly": "npm run build",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -32,16 +47,8 @@
     "link": "npm link",
     "unlink": "npm unlink @junjie-wu/echo-service",
     "cli": "node dist/cli.js",
-    "help": "./scripts/help.sh",
-    "prepublishOnly": "npm run build"
+    "help": "./scripts/help.sh"
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "files": [
-    "dist",
-    "README.md"
-  ],
   "keywords": [
     "echo",
     "http",
@@ -54,8 +61,6 @@
     "typescript",
     "npm-package"
   ],
-  "author": "Junjie Wu",
-  "license": "MIT",
   "dependencies": {
     "express": "^4.21.1"
   },
