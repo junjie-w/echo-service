@@ -3,8 +3,10 @@
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/junjie-w/echo-service)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/junjie-w/echo-service/quality-checks.yml)
 ![Node.js](https://img.shields.io/badge/Node.js->=20-brightgreen)
+[![codecov](https://codecov.io/gh/junjie-w/echo-service/branch/main/graph/badge.svg)](https://codecov.io/gh/junjie-w/echo-service)
 [![semantic-release](https://img.shields.io/badge/semantic--release-enabled-brightgreen?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 ![ESLint](https://img.shields.io/badge/ESLint-enabled-brightgreen)
+![Husky](https://img.shields.io/badge/Husky-enabled-brightgreen)
 
 A flexible HTTP echo service that mirrors back request details. Available as an NPM package for both library integration and CLI usage, as well as a Docker image for containerized deployment.
 
