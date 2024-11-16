@@ -1,5 +1,5 @@
 {
-  "name": "@junjie-w/echo-service",
+  "name": "@junjie-wu/echo-service",
   "version": "1.0.0",
   "description": "HTTP echo service for request inspection and testing - available as library, CLI tool, and Docker container",
   "type": "module",
@@ -30,7 +30,7 @@
     "docker:logs": "./scripts/docker.sh logs",
     "docker:clean": "./scripts/docker.sh clean",
     "link": "npm link",
-    "unlink": "npm unlink @junjie-w/echo-service",
+    "unlink": "npm unlink @junjie-wu/echo-service",
     "cli": "node dist/cli.js",
     "help": "./scripts/help.sh",
     "prepublishOnly": "npm run build"
