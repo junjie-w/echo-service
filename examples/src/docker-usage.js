@@ -19,27 +19,25 @@ try {
   isArm = false;
 }
 
+const pullAndRunDocker = (platformFlag = '') => {
+  console.log('1. Pulling Docker image...');
+  execSync(`docker pull ${platformFlag}${IMAGE_NAME}:${IMAGE_TAG}`, { stdio: 'inherit' });
+
+  console.log('\n2. Starting container...');
+  execSync(`docker run ${platformFlag}-d -p ${DOCKER_PORT}:3000 --name ${CONTAINER_NAME} ${IMAGE_NAME}:${IMAGE_TAG}`, {
+    stdio: 'inherit'
+  });
+};
+
 try {
   if (isArm) {
     console.log(`
 ⚠️  ARM64 Architecture Detected (Apple Silicon Macs (M1/M2/M3))
 Running with platform flag...
 `);
-    console.log('1. Pulling Docker image...');
-    execSync(`docker pull --platform linux/amd64 ${IMAGE_NAME}:${IMAGE_TAG}`, { stdio: 'inherit' });
-
-    console.log('\n2. Starting container on port 3003...');
-    execSync(`docker run --platform linux/amd64 -d -p ${DOCKER_PORT}:3000 --name ${CONTAINER_NAME} ${IMAGE_NAME}:${IMAGE_TAG}`, {
-      stdio: 'inherit'
-    });
+    pullAndRunDocker('--platform linux/amd64 ');
   } else {
-    console.log('1. Pulling Docker image...');
-    execSync(`docker pull ${IMAGE_NAME}:${IMAGE_TAG}`, { stdio: 'inherit' });
-
-    console.log('\n2. Starting container on port 3003...');
-    execSync(`docker run -d -p ${DOCKER_PORT}:3000 --name ${CONTAINER_NAME} ${IMAGE_NAME}:${IMAGE_TAG}`, {
-      stdio: 'inherit'
-    });
+    pullAndRunDocker();
   }
 
   console.log(`
@@ -62,8 +60,8 @@ docker rm ${CONTAINER_NAME}
   
   try {
     execSync(`docker rm -f ${CONTAINER_NAME}`, { stdio: 'ignore' });
-  } catch (error) {
-    console.error('Failed to remove container:', error);
+  } catch (cleanupError) {
+    console.error('Failed to remove container:', cleanupError);
   }
 
   console.log(`
@@ -76,9 +74,6 @@ Troubleshooting:
    docker run --platform linux/amd64 -p ${DOCKER_PORT}:3000 ${IMAGE_NAME}:${IMAGE_TAG}
 
 4. For other architectures:
-   docker pull ${IMAGE_NAME}:${IMAGE_TAG}
-   docker run -p ${DOCKER_PORT}:3000 ${IMAGE_NAME}:${IMAGE_TAG}
-
    docker pull ${IMAGE_NAME}:${IMAGE_TAG}
    docker run -p ${DOCKER_PORT}:3000 ${IMAGE_NAME}:${IMAGE_TAG}
 `);
