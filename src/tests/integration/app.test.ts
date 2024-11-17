@@ -1,7 +1,7 @@
 import request from 'supertest';
 
 import app from '../../app.js';
-import { SERVICE_INFO } from '../../config/constants.js';
+import { SERVICE_INFO } from '../../config/config.js';
 import * as responseUtils from '../../utils/response.js';
 
 const mockHostname = jest.fn().mockReturnValue('test-host');

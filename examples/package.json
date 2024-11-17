@@ -1,0 +1,17 @@
+{
+  "name": "echo-service-examples",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start:lib": "node src/library-usage.js",
+    "start:cli": "node src/cli-usage.js",
+    "start:docker": "node src/docker-usage.js",
+    "stop:docker": "docker stop echo-service-example && docker rm echo-service-example || true",
+    "start:docker-compose": "docker compose up -d",
+    "stop:docker-compose": "docker-compose down",
+    "logs:docker-compose": "docker compose logs -f"
+  },
+  "dependencies": {
+    "@junjie-wu/echo-service": "file:../"
+  }
+}
