@@ -2,8 +2,7 @@ import { hostname } from 'node:os';
 
 import express from 'express';
 
-import { config } from './config/config.js';
-import { SERVICE_INFO } from './config/constants.js';
+import { config, SERVICE_INFO } from './config/config.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import { jsonParser } from './middleware/jsonValidator.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';

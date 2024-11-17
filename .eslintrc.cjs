@@ -1,7 +1,7 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 12,
+    ecmaVersion: 'latest',
     sourceType: 'module',
     project: './tsconfig.json',
   },
@@ -47,7 +47,7 @@ module.exports = {
       parser: 'espree',
       parserOptions: {
         project: null, 
-        ecmaVersion: 2020,
+        ecmaVersion: 'latest',
         sourceType: 'module'
       },
       rules: {
@@ -98,7 +98,12 @@ module.exports = {
         },
       },
     ],
-    'import/no-unresolved': 'error',
+    'import/no-unresolved':  [
+      'error',
+      {
+        ignore: ['^@junjie-wu/echo-service']
+      }
+    ],
     'import/no-cycle': 'error',
     'import/no-duplicates': 'error',
     'import/first': 'error',

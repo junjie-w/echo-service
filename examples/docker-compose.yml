@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  echo-service:
+    image: junjiewu0/echo-service
+    platform: linux/amd64
+    ports:
+      - "3003:3000"
+    environment:
+      - NODE_ENV=production
