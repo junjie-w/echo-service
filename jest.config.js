@@ -18,19 +18,19 @@ export default {
     {
       displayName: '🧪 UNIT',  
       ...baseConfig,
-      testMatch: ['<rootDir>/src/tests/unit/**/*.test.ts'],
+      testMatch: ['<rootDir>/src/__tests__/unit/**/*.test.ts'],
       rootDir: '.'
     },
     {
       displayName: '🔄 INTEGRATION',  
       ...baseConfig,
-      testMatch: ['<rootDir>/src/tests/integration/**/*.test.ts'],
+      testMatch: ['<rootDir>/src/__tests__/integration/**/*.test.ts'],
       rootDir: '.'
     },
     {
       displayName: '🌐 API',  
       ...baseConfig,
-      testMatch: ['<rootDir>/src/tests/api/**/*.test.ts'],
+      testMatch: ['<rootDir>/src/__tests__/api/**/*.test.ts'],
       rootDir: '.'
     }
   ],
@@ -44,7 +44,7 @@ export default {
   },
   collectCoverageFrom: [
     'src/**/*.{ts,js}',
-    '!src/tests/**',
+    '!src/__tests__/**',
     '!src/**/*.d.ts',
     '!src/types/**',
     '!src/server.ts',

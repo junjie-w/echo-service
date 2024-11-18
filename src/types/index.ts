@@ -27,7 +27,6 @@ export interface ServerInfo {
 
 export interface ServiceInfo {
   sourceCode: string;
-  version: string;
   environment: string;
 }
 
