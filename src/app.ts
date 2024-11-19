@@ -52,7 +52,6 @@ app.all('/echo', (req, res, next) => {
         },
         serviceInfo: {
           sourceCode: SERVICE_INFO.SOURCE_CODE,
-          version: config.VERSION,
           environment: config.NODE_ENV
         }
       };

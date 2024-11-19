@@ -68,7 +68,7 @@ docker rm ${CONTAINER_NAME}
 Troubleshooting:
 1. Make sure Docker is running
 2. Check if port ${DOCKER_PORT} is available
-3. For Apple Silicon Macs (M1/M2/M3), try manually:
+3. For ARM-based machines (Apple Silicon, etc.), try manually:
 
    docker pull --platform linux/amd64 ${IMAGE_NAME}:${IMAGE_TAG}
    docker run --platform linux/amd64 -p ${DOCKER_PORT}:3000 ${IMAGE_NAME}:${IMAGE_TAG}
