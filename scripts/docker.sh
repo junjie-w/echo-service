@@ -109,7 +109,7 @@ help() {
 # Main execution
 main() {
     command="$1"
-    shift # Remove the first argument
+    shift
     if [[ " ${allowed_targets[@]} " =~ " ${command} " ]]; then
         $command "$@"
     else

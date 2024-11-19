@@ -33,10 +33,14 @@ npm install @junjie-wu/echo-service
 docker pull junjiewu0/echo-service
 docker run -p 3000:3000 junjiewu0/echo-service
 
+# For ARM-based machines (Apple Silicon, etc.)
+docker pull --platform linux/amd64 junjiewu0/echo-service
+docker run --platform linux/amd64 -p 3000:3000 junjiewu0/echo-service
+
 # Using Docker Compose
 docker compose up -d
 
-# Building Locally
+# Build and Run Locally
 docker build -t echo-service .
 docker run -p 3000:3000 echo-service
 ```
@@ -56,17 +60,22 @@ import { createServer } from '@junjie-wu/echo-service';
 const server = createServer(3000);
 ```
 
-### 🧪 Test the Service
+### 🧪 Try it out
 
 ```bash
 # Check service health
-http://localhost:3000/health
+curl http://localhost:3000/health
 
 # Echo back request details
-http://localhost:3000/echo
+curl http://localhost:3000/echo
 
-# Supports all HTTP methods and parameters
-http://localhost:3000/echo?name=test
+# Echo with query parameters
+curl "http://localhost:3000/echo?name=test"
+
+# Echo with POST data
+curl -X POST -H "Content-Type: application/json" \
+     -d '{"message": "hello"}' \
+     http://localhost:3000/echo
 ```
 
 ### 📋 Examples
@@ -94,15 +103,21 @@ npm run start:lib        # Library usage
 
 ### Setup
 
-1. Clone the repository:
 ```bash
-git clone https://github.com/junjie-w/echo-service.git
-cd echo-service
-```
-
-2. Install dependencies:
-```bash
+# Install dependencies
 npm install
+
+# Start development server
+npm run dev
+
+# Run tests
+npm test
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
 ### Commit Convention

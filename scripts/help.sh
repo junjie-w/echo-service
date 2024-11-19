@@ -6,33 +6,44 @@ Echo Service Commands
 
 Development
 ----------
-npm run dev          # Start development server
-npm start           # Start production server
+npm run dev                   # Start development server with auto-reload (tsx watch)
+npm run build                 # Build TypeScript project
+npm start                     # Start production server
+npm run prepare               # Setup Husky git hooks
 
-Docker
-------
-npm run docker:build # Build Docker image
-npm run docker:start # Start Docker container
-npm run docker:stop  # Stop Docker container
+Testing
+-------
+npm test                      # Run all tests
+npm run test:watch            # Run tests in watch mode
+npm run test:coverage         # Generate test coverage report
+npm run test:ci               # Run tests in CI mode with coverage
+npm run test:unit             # Run unit tests only
+npm run test:integration      # Run integration tests only
+npm run test:api              # Run API tests only
+npm run start:test            # Start test server
+npm run stop:test             # Stop test server
 
-Package Development
------------------
-npm run cli         # Run CLI locally
-npm run link        # Link package globally
-npm run unlink      # Unlink @junjie-wu/echo-service globally
+Linting
+-------
+npm run lint                  # Run ESLint
+npm run lint:fix              # Fix ESLint issues automatically
 
-Global Usage
------------
-# Install globally
-npm install -g @junjie-wu/echo-service
+Docker Operations
+---------------
+npm run docker:build          # Build Docker image
+npm run docker:start          # Start Docker container
+npm run docker:stop           # Stop Docker container
+npm run docker:logs           # View container logs
+npm run docker:clean          # Remove container and image
+npm run docker:shell          # Open a shell in the container
+npm run docker:info           # Show container information
+npm run docker:restart        # Restart Docker container
+npm run docker:help           # Show all Docker commands
 
-# Run anywhere
-echo-service
-
-# Or use npx without installing
-npx @junjie-wu/echo-service
-
-Environment Variables
--------------------
-PORT                # Specify port (default: 3000)
+CLI Development & Usage
+-----------------------
+npm run cli                   # Run CLI locally from dist/
+npm run link                  # Link package globally
+npm run unlink                # Unlink package globally
+npx @junjie-wu/echo-service   # Run CLI without installing
 "
