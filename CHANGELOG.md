@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/junjie-w/echo-service/compare/v1.1.1...v1.1.2) (2024-12-01)
+
+
+### Bug Fixes
+
+* update docs ([5617793](https://github.com/junjie-w/echo-service/commit/5617793740bc318c3d0994b157f482c08b3cde3f))
+
 ## [1.1.1](https://github.com/junjie-w/echo-service/compare/v1.1.0...v1.1.1) (2024-11-19)
 
 
