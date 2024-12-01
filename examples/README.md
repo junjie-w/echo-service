@@ -1,6 +1,6 @@
 # Echo Service Examples
 
-Examples of using the [Echo Service](https://github.com/junjie-w/echo-service) via [Docker image](https://hub.docker.com/r/junjiewu0/echo-service) and [NPM package](https://www.npmjs.com/package/@junjie-wu/echo-service).
+Examples of using [Echo Service](https://github.com/junjie-w/echo-service) via [Docker image](https://hub.docker.com/r/junjiewu0/echo-service) and [NPM package](https://www.npmjs.com/package/@junjie-wu/echo-service).
 
 ## 🐳 Docker Usage
 
@@ -67,7 +67,6 @@ curl http://localhost:3001/echo
 
 ### Port Already in Use
 
-If you see "Port in use" error:
 ```bash
 # Check what's using the port
 lsof -i :<port_number>
@@ -78,7 +77,6 @@ kill -9 <PID>
 
 ### Docker on ARM-based machines (Apple Silicon, etc.)
 
-The example automatically handles platform differences, but you can manually run:
 ```bash
 docker pull --platform linux/amd64 junjiewu0/echo-service
 docker run --platform linux/amd64 -p 3003:3000 junjiewu0/echo-service

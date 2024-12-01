@@ -1,7 +1,7 @@
 {
   "name": "@junjie-wu/echo-service",
   "version": "1.1.1",
-  "description": "HTTP echo service for request inspection and testing - available as library, CLI tool, and Docker container",
+  "description": "HTTP echo service mirroring back request details. Available as Docker image and NPM package.",
   "author": "Junjie Wu",
   "license": "MIT",
   "type": "module",
