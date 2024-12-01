@@ -60,7 +60,7 @@ import { createServer } from '@junjie-wu/echo-service';
 const server = createServer(3000);
 ```
 
-### 🧪 Try it out
+### 🧪 Try It Out
 
 ```bash
 # Check service health
@@ -79,7 +79,7 @@ curl -X POST -H "Content-Type: application/json" \
 ```
 
 ### 📋 Examples
-For complete working examples of all usage methods, check out the [examples](./examples) directory:
+For complete working examples of all usage methods, check out the [examples](https://github.com/junjie-w/echo-service/tree/main/examples) directory:
 ```bash
 git clone https://github.com/junjie-w/echo-service.git
 cd echo-service/examples
